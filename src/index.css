@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+  font-family: 'Montserrat', sans-serif;
+}
+
+@layer components {
+  .container-max {
+    @apply container max-w-[1080px] w-[90%] mx-auto;
+  }
+  .container-md {
+    @apply container max-w-[768px] w-[90%] mx-auto;
+  }
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+}
+
+.overlay-container {
+  position: relative;
+}
+
+.overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 10%,
+    rgba(0, 0, 0, 0) 90%
+  ); /* Black see-through */
+  transition: 0.5s ease;
+  opacity: 1;
+  /* height: 100%; */
+}
