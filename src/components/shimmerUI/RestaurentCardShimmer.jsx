@@ -3,8 +3,8 @@ import Skeleton from 'react-loading-skeleton';
 
 const RestaurentCardShimmer = () => {
   return (
-    <div className="w-36 md:w-56 lg:w-64 h-52">
-      <div className="w-full h-40">
+    <div className="w-40 md:w-56 lg:w-64 h-52">
+      <div className="w-full h-36">
         <Skeleton className="w-full h-full" />
       </div>
       <div className="py-3">

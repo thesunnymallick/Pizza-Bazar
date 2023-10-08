@@ -7,28 +7,32 @@ import FoodShimmer from '../components/shimmerUI/FoodShimmer';
 import ResturentList from '../components/Resturents/ResturentList';
 import RestaurentShimmer from '../components/shimmerUI/RestaurentShimmer';
 import PopularRes from '../components/Resturents/PopularRes';
+import Error from '../components/Error';
 
 const Home = () => {
   const { resList, popularRes, banner, food, error, loading } = useResturentList();
-  if (error) {
-    return (
-      <div>
-        <h1>Oppsss!</h1>
-        <p>
-          Something went worng !<br />
-          try again after some time
-        </p>
-      </div>
-    );
-  }
 
   return (
-    <div className="all container-max">
-      {loading !== true ? <Banner banner={banner} /> : <BannerShimmer />}
-      {loading !== true ? <Food food={food} /> : <FoodShimmer />}
-      {loading !== true ? <ResturentList resList={resList} /> : <RestaurentShimmer />}
-      {loading !== true ? <PopularRes popularRes={popularRes} /> : <RestaurentShimmer />}
-    </div>
+    <>
+      {error === true ? (
+        <Error />
+      ) : (
+        <div className="all container-max">
+          {loading !== true ? (
+            banner.length !== 0 ? (
+              <Banner banner={banner} />
+            ) : (
+              ''
+            )
+          ) : (
+            <BannerShimmer />
+          )}
+          {loading !== true ? food.length !== 0 ? <Food food={food} /> : '' : <FoodShimmer />}
+          {loading !== true ? <ResturentList resList={resList} /> : <RestaurentShimmer />}
+          {loading !== true ? <PopularRes popularRes={popularRes} /> : <RestaurentShimmer />}
+        </div>
+      )}
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
-import Error from './pages/Error';
+import NotFound from './pages/NotFound';
 import RestaurentInfo from './pages/RestaurentInfo';
 import { Provider } from 'react-redux';
 import store from './store/store';
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <Error />,
+    errorElement: <NotFound />,
     children: [
       {
         path: '/',

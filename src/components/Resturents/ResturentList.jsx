@@ -19,7 +19,11 @@ const ResturentList = ({ resList }) => {
   return (
     <div className="ResturentConainer py-3">
       <div className={`py-5  ${Style.itemCenter}`}>
-        <SearchInput search={search} setSearch={setSearch} searchHandel={searchHandel} />
+        {filterResList?.length !== 0 ? (
+          <SearchInput search={search} setSearch={setSearch} searchHandel={searchHandel} />
+        ) : (
+          ''
+        )}
       </div>
       <div className="w-full py-3">
         {filterResList?.length !== 0 ? (

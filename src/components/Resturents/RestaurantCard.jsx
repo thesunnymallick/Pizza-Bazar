@@ -1,5 +1,5 @@
 import React from 'react';
-import { CDN_URL, startIcon } from '../../utils/constant';
+import { CDN_URL, startIcon, NotFoundImg } from '../../utils/constant';
 import { useNavigate } from 'react-router-dom';
 const RestaurantCard = ({ resInfo }) => {
   const navigate = useNavigate();
@@ -12,12 +12,12 @@ const RestaurantCard = ({ resInfo }) => {
       className="flex flex-col overlay-container w-40 h-60 md:w-52 md:h-64 lg:w-64 lg:h-80 rounded-md overflow-hidden bg-slate-50 cursor-pointer transition-all hover:scale-95 relative ">
       <img
         className="w-full h-28 lg:h-40 object-cover "
-        src={CDN_URL + cloudinaryImageId}
+        src={CDN_URL + cloudinaryImageId || NotFoundImg}
         alt={name}
       />
 
-      <div className="w-full flex justify-center gap-1  items-center absolute lg:top-[7.5rem] top-20 overlay h-[14%] sm:h-[15%] lg:h-[14%]">
-        <span className="text-xs md:text-base lg:text-xl text-white font-semibold">
+      <div className="w-full flex justify-center gap-1  items-center absolute lg:top-[7.5rem] top-20 overlay h-[14%] sm:h-[15%] lg:h-[13%]">
+        <span className="text-xs md:text-base lg:text-xl text-white font-extrabold">
           {aggregatedDiscountInfoV3?.header}
         </span>
         <span className="text-xs md:text-base lg:text-xl text-white font-semibold">

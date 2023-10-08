@@ -21,22 +21,28 @@ const useResturentList = () => {
 
         if (data?.data) {
           setResList(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
           setFilterResList(
             data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
           );
+
           setPopularRes(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
           // filter banner
           setBanner(
             data?.data.cards.filter((item) => {
               return item.card?.card?.id === 'topical_banner';
             })[0]
           );
+
           // filter food
           setFood(
             data?.data.cards.filter((item) => {
               return item.card?.card?.id === 'whats_on_your_mind';
             })[0]
           );
+        } else {
+          setError(true);
         }
         setLoading(false);
       } catch (error) {

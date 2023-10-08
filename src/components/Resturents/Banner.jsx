@@ -39,7 +39,7 @@ const Banner = ({ banner }) => {
   const settings = {
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 3,

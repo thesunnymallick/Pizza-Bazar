@@ -7,6 +7,8 @@ import logo from '../assets/logo.png';
 import startIcon from '../assets/star.png';
 import NotFoundImg from '../assets/noImage.jpg';
 import emptyCart from '../assets/emptyCart.png';
+import notfound from '../assets/notFound.png';
+import error from '../assets/error.png';
 
 export const NavLinks = [
   { id: 1, title: 'Home', icon: <AiOutlineHome />, path: '/' },
@@ -31,4 +33,6 @@ export {
   BsChevronUp,
   NotFoundImg,
   emptyCart,
+  notfound,
+  error,
 };
