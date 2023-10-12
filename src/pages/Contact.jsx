@@ -2,8 +2,8 @@ import React from 'react';
 
 const Contact = () => {
   return (
-    <div className="container-max py-5">
-      <div className="w-[40%] mx-auto py-4 px-4 shadow-lg rounded-md">
+    <div className="container-max py-2 sm:py-5">
+      <div className="w-[95%] md:w-[60%] lg:w-[40%] mx-auto py-4 px-4 shadow-lg rounded-md">
         <h1 className="text-2xl text-zinc-900 font-semibold">Contact Us</h1>
         <form className="flex flex-col gap-6 py-4">
           <input
