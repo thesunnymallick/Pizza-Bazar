@@ -10,6 +10,7 @@ import RestaurentInfo from './pages/RestaurentInfo';
 import { Provider } from 'react-redux';
 import store from './store/store';
 import Cart from './pages/Cart';
+import Contact from './pages/Contact';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: '/cart',
         element: <Cart />,
+      },
+      {
+        path: '/contact',
+        element: <Contact />,
       },
     ],
   },
