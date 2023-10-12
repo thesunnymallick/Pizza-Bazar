@@ -21,10 +21,17 @@ const useResturentList = () => {
         const { data } = await axios.post(GET_RESTAURANTS_URL, address);
 
         if (data?.data) {
-          setResList(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+          console.log(data?.data);
+          setResList(
+            data?.data?.cards.filter(
+              (items) => items?.card?.card?.id === 'restaurant_grid_listing'
+            )[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+          );
 
           setFilterResList(
-            data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+            data?.data?.cards.filter(
+              (items) => items?.card?.card?.id === 'restaurant_grid_listing'
+            )[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants
           );
 
           setPopularRes(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);

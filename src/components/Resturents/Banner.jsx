@@ -71,7 +71,7 @@ const Banner = ({ banner }) => {
   return (
     <div className="banner">
       <div className="flex justify-between py-5 relative">
-        <h1 className="text-2xl font-semibold">Best offers for you</h1>
+        {banner && <h1 className="text-2xl font-semibold">Best offers for you</h1>}
       </div>
       <Slider {...settings}>
         {banner?.card?.card?.gridElements?.infoWithStyle.info.map((item) => {

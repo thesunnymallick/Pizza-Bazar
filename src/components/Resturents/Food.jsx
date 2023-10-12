@@ -64,7 +64,7 @@ const Food = ({ food }) => {
   return (
     <div className="food">
       <div className="flex justify-between py-5 relative">
-        <h1 className="text-2xl font-semibold">What's on your mind?</h1>
+        {food && <h1 className="text-2xl font-semibold">What's on your mind?</h1>}
       </div>
       <Slider {...settings}>
         {food?.card?.card?.gridElements?.infoWithStyle.info.map((item, index) => {
