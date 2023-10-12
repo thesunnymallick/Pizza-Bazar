@@ -41,7 +41,7 @@ const Food = ({ food }) => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 10,
+          slidesToShow: 7,
           slidesToScroll: 1,
         },
       },

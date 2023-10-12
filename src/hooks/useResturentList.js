@@ -11,6 +11,7 @@ const useResturentList = () => {
   const [food, setFood] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [notFound, setNotFound] = useState(null);
   const { address } = useSelector((state) => state.address);
 
   useEffect(() => {
@@ -41,6 +42,11 @@ const useResturentList = () => {
               return item.card?.card?.id === 'whats_on_your_mind';
             })[0]
           );
+          setNotFound(
+            data?.data.cards.filter((item) => {
+              return item.card?.card?.id === 'swiggy_not_present';
+            })[0]
+          );
         } else {
           setError(true);
         }
@@ -53,7 +59,17 @@ const useResturentList = () => {
     fetchRestList();
   }, [address]);
 
-  return { resList, banner, food, error, loading, filterResList, setFilterResList, popularRes };
+  return {
+    resList,
+    banner,
+    food,
+    error,
+    loading,
+    filterResList,
+    setFilterResList,
+    popularRes,
+    notFound,
+  };
 };
 
 export default useResturentList;

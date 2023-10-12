@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { IoLocationOutline } from '../utils/constant';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { addAddress } from '../store/reducers/addressSlice';
+import { addAddress, removeAddress } from '../store/reducers/addressSlice';
 
 const Modal = ({ closeModal }) => {
   const [error, setError] = useState({ code: 0, message: null });
   const [location, setLocation] = useState({ latitude: null, longitude: null });
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
+  const address = JSON.parse(localStorage.getItem('address'));
+  console.log(address);
   const getLocationHandel = async () => {
     try {
       setIsLoading(true);
@@ -41,6 +43,7 @@ const Modal = ({ closeModal }) => {
           const { data } = await axios.get(API_CITY);
           dispatch(addAddress(data));
           setIsLoading(false);
+          closeModal();
         }
       } catch (error) {
         setError({ code: 0, message: 'Geolocation is not supported in your browser' });
@@ -48,8 +51,11 @@ const Modal = ({ closeModal }) => {
       }
     };
     fetchLocation();
-  }, [location.longitude, location.latitude, dispatch]);
+  }, [location.longitude, location.latitude, dispatch, closeModal]);
 
+  const removeLocationHandel = () => {
+    dispatch(removeAddress());
+  };
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 overflow-hidden">
       <div
@@ -84,6 +90,16 @@ const Modal = ({ closeModal }) => {
           <span className="text-xs sm:text-sm py-2 font-semibold text-red-500">
             {error.message}
           </span>
+        )}
+
+        {address !== null ? (
+          <button
+            onClick={removeLocationHandel}
+            className="self-end my-3 bg-orange-500 text-white text-sm py-2 px-4 rounded-md hover:bg-orange-600 transition-all">
+            Remove location
+          </button>
+        ) : (
+          ''
         )}
       </div>
     </div>

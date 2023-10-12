@@ -11,7 +11,7 @@ import notfound from '../assets/notFound.png';
 import error from '../assets/error.png';
 import aboutImg from '../assets/about.jpg';
 //facebook FiInstagram FiGithub PiLinkedinLogoBold
-import { FiFacebook, FiInstagram, FiGithub, FiLinkedin } from 'react-icons/fi';
+import { FiFacebook, FiInstagram, FiGithub, FiLinkedin, FiSearch, FiSend } from 'react-icons/fi';
 export const NavLinks = [
   { id: 1, title: 'Home', icon: <AiOutlineHome />, path: '/' },
   { id: 2, title: 'About', icon: <AiOutlineProfile />, path: '/about' },
@@ -44,4 +44,6 @@ export {
   notfound,
   error,
   aboutImg,
+  FiSearch,
+  FiSend,
 };

@@ -20,7 +20,7 @@ const FoodShimmer = () => {
         </div>
       </div>
 
-      <div className={`${Style.flexCenter} gap-3 sm:gap-4 lg:gap-10`}>
+      <div className={`${Style.flexCenter} py-2 px-5 gap-3 sm:gap-4 lg:gap-8`}>
         {Array.from({ length: 10 }, (_, index) => index).map((item, index) => (
           <div key={index} className="w-[40px] sm:w-[70px] h-[100px]">
             <div className={`w-[40px] h-[40px] sm:w-[70px] sm:h-[70px] `}>

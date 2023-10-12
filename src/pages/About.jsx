@@ -1,12 +1,20 @@
 import React from 'react';
 import { aboutImg, socialLinks } from '../utils/constant';
 import { Link } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 const About = () => {
   return (
     <div className="container-max py-5">
       <div className="flex flex-col-reverse sm:flex-row px-4 py-2 sm:py-10 rounded-md shadow-sm">
         <div className="md:basis-[35%] lg:basis-[30%] overflow-hidden px-0 sm:px-4 ">
-          <img className="w-full h-full rounded-3xl" src={aboutImg} alt="me" />
+          {/* <img loading="lazy" className="w-full h-full rounded-3xl" src={aboutImg} alt="me" /> */}
+          <LazyLoadImage
+            src={aboutImg}
+            className="w-full h-full rounded-3xl"
+            alt="me"
+            effect="blur"
+          />
         </div>
         <div className="md:basis-[65%] lg:basis-[70%] px-2 lg:px-4">
           <h1 className="text-2xl text-zinc-900 font-semibold pb-2">About us</h1>

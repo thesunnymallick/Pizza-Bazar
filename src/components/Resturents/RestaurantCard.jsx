@@ -1,6 +1,8 @@
 import React from 'react';
 import { CDN_URL, startIcon, NotFoundImg } from '../../utils/constant';
 import { useNavigate } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 const RestaurantCard = ({ resInfo }) => {
   const navigate = useNavigate();
   const { name, cuisines, avgRating, id, cloudinaryImageId, aggregatedDiscountInfoV3, locality } =
@@ -10,10 +12,11 @@ const RestaurantCard = ({ resInfo }) => {
     <div
       onClick={() => navigate(`/restaurent/${id}`)}
       className="flex flex-col overlay-container w-40 h-60 md:w-52 md:h-64 lg:w-64 lg:h-80 rounded-md overflow-hidden bg-slate-50 cursor-pointer transition-all hover:scale-95 relative ">
-      <img
+      <LazyLoadImage
         className="w-full h-28 lg:h-40 object-cover "
         src={CDN_URL + cloudinaryImageId || NotFoundImg}
         alt={name}
+        effect="blur"
       />
 
       <div className="w-full flex justify-center gap-1  items-center absolute lg:top-[7.5rem] top-20 overlay h-[14%] sm:h-[15%] lg:h-[13%]">

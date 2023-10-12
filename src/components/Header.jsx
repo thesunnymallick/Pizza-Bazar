@@ -12,6 +12,8 @@ import {
 import { Style } from '../utils/style';
 import { useSelector } from 'react-redux';
 import Modal from './Modal';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -33,7 +35,12 @@ function Header() {
       <div className={``}>
         <div className={`${Style.flexCenter} flex-col md:flex-row md:gap-2`}>
           <div className={`${Style.flexCenter}`}>
-            <img className="hidden md:block md:w-12" src={logo} alt="logo" />
+            <LazyLoadImage
+              className="hidden md:block md:w-12"
+              src={logo}
+              alt="logo"
+              effect="blur"
+            />
             <div className="mr-12 md:mr-0">
               <span
                 className={`text-lg flex ${Style.textColor}  md:${Style.flexCenter} md:ml-2 font-bold`}>
@@ -56,6 +63,7 @@ function Header() {
         </div>
       </div>
       {showModal && <Modal closeModal={closeModal} />}
+
       <div className={`${Style.flexCenter} gap-6`}>
         <div
           className={`${
@@ -63,13 +71,13 @@ function Header() {
           } md:hidden absolute left-0 top-0 flex justify-center items-center  flex-col gap-6 z-10 py-1 w-[70%] sm:w-[50%] transition-all   bg-gray-100 h-screen
        `}>
           {NavLinks.map((nav) => {
-            return <NavItem key={nav.id} nav={nav} />;
+            return <NavItem setIsOpen={setIsOpen} key={nav.id} nav={nav} />;
           })}
         </div>
 
         <div className={`hidden md:flex items-center gap-6`}>
           {NavLinks.map((nav) => {
-            return <NavItem key={nav.id} nav={nav} />;
+            return <NavItem setIsOpen={setIsOpen} key={nav.id} nav={nav} />;
           })}
         </div>
 
@@ -94,9 +102,10 @@ function Header() {
   );
 }
 
-const NavItem = ({ nav }) => {
+const NavItem = ({ nav, setIsOpen }) => {
   return (
     <Link
+      onClick={() => setIsOpen(false)}
       className={`${Style.flexCenter} hover:${Style.hover2} ${Style.textColor} gap-2 z-20`}
       to={nav.path}>
       <span className={`text-xl font-extrabold `}>{nav.icon}</span>

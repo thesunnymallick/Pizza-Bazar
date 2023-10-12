@@ -2,6 +2,9 @@ import React from 'react';
 import { CDN_URL, NotFoundImg } from '../utils/constant';
 import { useDispatch } from 'react-redux';
 import { addToCart, decreseQuantity, removeCart } from '../store/reducers/cartSlice';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 const CartItmes = ({ item }) => {
   const dispatch = useDispatch();
   const textSize = (text, size) => {
@@ -26,10 +29,11 @@ const CartItmes = ({ item }) => {
   return (
     <div className="itemCard flex flex-col sm:flex-row gap-4 px-2 py-3 ">
       <div className="">
-        <img
+        <LazyLoadImage
           className="w-40 h-36 rounded-md"
           src={CDN_URL + item?.imageId || NotFoundImg}
           alt={item?.name}
+          effect="blur"
         />
       </div>
       <div className="flex-1 flex gap-1 flex-col">

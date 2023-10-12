@@ -3,6 +3,8 @@ import { CDN_URL } from '../../utils/constant';
 import { NotFoundImg } from '../../utils/constant';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../store/reducers/cartSlice';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const MenuItemList = ({ info }) => {
   const dispatch = useDispatch();
@@ -11,7 +13,6 @@ const MenuItemList = ({ info }) => {
     dispatch(addToCart(item));
   };
 
-  //imageId, defaultPrice description, price
   const Textlength = (text, size) => {
     if (text?.length > size) {
       const newText = text.substring(0, size).concat('...');
@@ -33,15 +34,16 @@ const MenuItemList = ({ info }) => {
         </span>
       </div>
       <div className="basis-4/12 sm:basis-1/4 relative flex items-center ">
-        <img
+        <LazyLoadImage
           className="w-full h-40 aspect-video sm:h-40 object-cover rounded-md"
           src={info?.imageId ? CDN_URL + info.imageId : NotFoundImg}
           alt={info.name}
+          effect="blur"
         />
         <button
           onClick={() => addToCartHandel(info)}
           className="w-20 h-10 bg-white absolute left-[50%] -bottom-5 -translate-x-[50%]
-          shadow-lg rounded-md text-base font-bold text-zinc-800 hover:bg-slate-100 transition-all">
+          shadow-lg rounded-md text-base font-bold text-zinc-800 hover:bg-green-500 hover:text-white transition-all">
           ADD
         </button>
       </div>
