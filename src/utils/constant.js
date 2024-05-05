@@ -24,9 +24,11 @@ export const socialLinks = [
   { id: 4, icons: <FiInstagram />, path: 'https://www.instagram.com/themallicksunny/' },
 ];
 
+
+
 export const CDN_URL = `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/`;
 
-export const GET_RESTAURANTS_URL = 'https://swiggyapiwrapper.dineshrout.repl.co/api/restaurants';
+export const GET_RESTAURANTS_URL =`https://super-colt-coveralls.cyclic.app/api/users/swiggy/restaurants`;
 
 export {
   logo,

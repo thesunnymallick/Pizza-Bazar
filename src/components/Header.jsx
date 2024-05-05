@@ -31,7 +31,7 @@ function Header() {
   };
 
   return (
-    <div className={`${Style.flexBetween} ${Style.bgcolor} px-7 sticky z-20 top-0 py-5 shadow-md`}>
+    <div className={`${Style.flexBetween} ${Style.bgcolor} px-7 sticky z-20 top-0 py-5 shadow-sm `}>
       <div className={``}>
         <div className={`${Style.flexCenter} flex-col md:flex-row md:gap-2`}>
           <div className={`${Style.flexCenter}`}>

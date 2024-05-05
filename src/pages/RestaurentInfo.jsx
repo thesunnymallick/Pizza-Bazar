@@ -11,6 +11,7 @@ const RestaurentInfo = () => {
   const { id } = useParams();
   const { resInfo, error, loading } = useRestaurentInfo(id);
 
+
   if (error) {
     return <h1>Something Worng!</h1>;
   }
@@ -19,12 +20,12 @@ const RestaurentInfo = () => {
     <div className="w-full">
       <div className="container-md py-3">
         {loading !== true ? (
-          <ResInfo info={resInfo[0]?.card?.card?.info} />
+          <ResInfo info={resInfo[2]?.card?.card?.info} />
         ) : (
           <RestaurentInfoShimmer />
         )}
         {loading !== true ? (
-          <RestaurentItemMenu itemCard={resInfo[2]?.groupedCard.cardGroupMap.REGULAR} />
+          <RestaurentItemMenu itemCard={resInfo[4]?.groupedCard?.cardGroupMap?.REGULAR} />
         ) : (
           <RestaurentInfoCardShimmer />
         )}

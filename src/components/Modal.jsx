@@ -10,7 +10,11 @@ const Modal = ({ closeModal }) => {
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const address = JSON.parse(localStorage.getItem('address'));
-  console.log(address);
+
+
+  const MY_API_KEY='dcb2cbf83431c8fafbc4d9fbcb6872b7'
+
+
   const getLocationHandel = async () => {
     try {
       setIsLoading(true);
@@ -37,7 +41,7 @@ const Modal = ({ closeModal }) => {
   useEffect(() => {
     const fetchLocation = async () => {
       try {
-        const API_CITY = `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${process.env.REACT_APP_API_KEY}
+        const API_CITY = `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${MY_API_KEY}
       `;
         if (location.latitude !== null && location.longitude !== null) {
           const { data } = await axios.get(API_CITY);
